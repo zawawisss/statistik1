@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true, // Pastikan ini ada untuk App Router
   },
   eslint: {
     ignoreDuringBuilds: true,
