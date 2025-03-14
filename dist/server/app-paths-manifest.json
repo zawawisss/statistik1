@@ -1,5 +1,5 @@
 {
-  "/api/kecamatan/route": "app/api/kecamatan/route.js",
+  "/page": "app/page.js",
   "/api/statistik/route": "app/api/statistik/route.js",
-  "/page": "app/page.js"
+  "/api/kecamatan/route": "app/api/kecamatan/route.js"
 }
