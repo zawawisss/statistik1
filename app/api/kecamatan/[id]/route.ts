@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { getKecamatanById } from "@/lib/mongodb"; // Fungsi dari lib/mongodb.ts
+import { getKecamatanById } from "@/lib/mongodb";
+
+export const dynamic = "force-dynamic"; // Menjadikan API selalu dinamis
 
 export async function GET(req: Request, { params }: { params: { id: string } }) {
   try {
