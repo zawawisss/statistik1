@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 69, "column": 0}, "map": {"version":3,"sources":["file:///Users/awi/statistik-ipnu-ippnu-ponorogo/app/api/statistik/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\nimport {getPacData} from '../../../lib/mongodb'\n\n\nexport async function GET() {\n    const data = await getPacData();\n    return NextResponse.json(data);\n  }"],"names":[],"mappings":";;;AAAA;AACA;;;AAGO,eAAe;IAClB,MAAM,OAAO,MAAM,CAAA,GAAA,gHAAA,CAAA,aAAU,AAAD;IAC5B,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;AAC3B","debugId":null}}]
-}
