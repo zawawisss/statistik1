@@ -10,14 +10,12 @@ import {
   TableCell,
   Chip,
   Spinner,
-  Button,
 } from "@heroui/react";
 import { PacIpnu, PacIppnu } from "../types/statistics";
 
 const getStatus = (tanggal_berakhir: string) => {
   if (!tanggal_berakhir) return "Tidak Ada Data";
   const today = new Date();
-  // Pastikan format tanggal sudah benar
   const tanggalSK = new Date(tanggal_berakhir + "T00:00:00Z");
   return tanggalSK >= today ? "Aktif" : "Tidak Aktif";
 };
@@ -28,15 +26,15 @@ export function TabelPac() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // State dan hooks untuk infinite scroll (misal untuk pagination)
+  // State dan hooks untuk infinite scroll
   const [isListLoading, setIsListLoading] = useState(true);
   const [hasMore, setHasMore] = useState(false);
+
   const list = useAsyncList({
     async load({ signal, cursor }) {
       if (cursor) {
         setIsListLoading(false);
       }
-      // Contoh API lain (swapi) untuk infinite scroll; sesuaikan dengan kebutuhan
       const res = await fetch(
         cursor || "https://swapi.py4e.com/api/people/?search=",
         { signal }
@@ -49,6 +47,8 @@ export function TabelPac() {
       };
     },
   });
+
+  // Gunakan useInfiniteScroll
   const [loaderRef, scrollerRef] = useInfiniteScroll({
     hasMore,
     onLoadMore: list.loadMore,
@@ -81,10 +81,26 @@ export function TabelPac() {
       </h2>
 
       {/* Tabel PAC IPNU */}
-      <DataTable title="Rekapitulasi Data PAC IPNU" data={ipnuData} list={list} hasMore={hasMore} isListLoading={isListLoading} scrollerRef={scrollerRef} loaderRef={loaderRef} />
+      <DataTable 
+        title="Rekapitulasi Data PAC IPNU" 
+        data={ipnuData} 
+        list={list} 
+        hasMore={hasMore} 
+        isListLoading={isListLoading} 
+        scrollerRef={scrollerRef} 
+        loaderRef={loaderRef} 
+      />
 
       {/* Tabel PAC IPPNU */}
-      <DataTable title="Rekapitulasi Data PAC IPPNU" data={ippnuData} list={list} hasMore={hasMore} isListLoading={isListLoading} scrollerRef={scrollerRef} loaderRef={loaderRef} />
+      <DataTable 
+        title="Rekapitulasi Data PAC IPPNU" 
+        data={ippnuData} 
+        list={list} 
+        hasMore={hasMore} 
+        isListLoading={isListLoading} 
+        scrollerRef={scrollerRef} 
+        loaderRef={loaderRef} 
+      />
     </div>
   );
 }
@@ -104,8 +120,8 @@ const DataTable = ({
   list: ReturnType<typeof useAsyncList>;
   hasMore: boolean;
   isListLoading: boolean;
-  scrollerRef: React.RefObject<HTMLDivElement>;
-  loaderRef: React.RefObject<HTMLDivElement>;
+  scrollerRef: React.RefObject<HTMLElement>; // Ubah dari HTMLDivElement ke HTMLElement
+  loaderRef: React.RefObject<HTMLElement>; // Ubah dari HTMLDivElement ke HTMLElement
 }) => {
   return (
     <div className="space-y-4">
@@ -113,7 +129,7 @@ const DataTable = ({
       <Table
         isHeaderSticky
         aria-label={title}
-        baseRef={scrollerRef}
+        baseRef={scrollerRef} // Gunakan scrollerRef sebagai baseRef
         bottomContent={
           hasMore ? (
             <div className="flex w-full justify-center">

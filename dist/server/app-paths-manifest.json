@@ -1,1 +1,5 @@
-{}
+{
+  "/api/kecamatan/route": "app/api/kecamatan/route.js",
+  "/api/statistik/route": "app/api/statistik/route.js",
+  "/page": "app/page.js"
+}
