@@ -1,11 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/kecamatan/[id]/route": "app/api/kecamatan/[id]/route.js",
   "/api/statistik/route": "app/api/statistik/route.js",
   "/api/kecamatan/route": "app/api/kecamatan/route.js",
-  "/page": "app/page.js",
-  "/docs/page": "app/docs/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/about/page": "app/about/page.js",
-  "/pricing/page": "app/pricing/page.js"
+  "/page": "app/page.js"
 }
