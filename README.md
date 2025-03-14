@@ -100,3 +100,4 @@ Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template
 >>>>>>> bdf3f8e (ver. 1.00)
 # statistik1
 # statistik1
+# statistik1
